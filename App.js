@@ -8,11 +8,13 @@ import {
   Text,
   View,
 } from "react-native";
+import Boton from './componentes/Boton';
 
 export default function App() {
   const [countClick, setCount] = useState(0);
   const [loading, setLoader] = useState(false);
   const [clicks,setClicks] = useState([])
+
 
   const pressFunction = () => {
     setLoader(true);
@@ -32,7 +34,8 @@ export default function App() {
     <View style={styles.container}>
       <View>
         <Text>You press {countClick} times the button! </Text>
-
+        <Boton titulo="cambia de color"/>
+        
         <Button
           title={
             !loading ? (
@@ -55,7 +58,11 @@ export default function App() {
   );
 }
 
-const Click = ({click}) => (<View><Text>{`Click number ${click.number} at the ${click.time}`}</Text></View>);
+const Click = ({click}) => (
+  <View>
+  <Text>{`Click number ${click.number} at the ${click.time}`}</Text>
+  </View>
+  );
 
 const ListExample = ({clicks}) => {
   
@@ -64,7 +71,9 @@ const ListExample = ({clicks}) => {
      <Click click={item} />
   )
 
-  return <View><FlatList data={clicks} renderItem = {renderItems} keyExtractor={click => click.number}  /></View>;
+  return <View>
+  <FlatList data={clicks} renderItem = {renderItems} keyExtractor={click => click.number}  />
+  </View>;
 };
 
 const styles = StyleSheet.create({
