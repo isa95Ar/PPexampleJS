@@ -1,3 +1,4 @@
+/* Author: Maximiliano Fiorito, Fecha: 21/10/2020, Institucion: ISP*/
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
