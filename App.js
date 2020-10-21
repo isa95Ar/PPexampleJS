@@ -1,3 +1,4 @@
+/*Author Juampi Institucion: Patagonico Fecha 21/10/2020*/
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
