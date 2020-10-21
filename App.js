@@ -1,4 +1,4 @@
-/*Author: Lucas S - Instituto Superior Patagonico - Bariloche - 21-10-2020*/;
+/*Author: Lucas S - Instituto Superior Patagonico - 21-10-2020*/;
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
