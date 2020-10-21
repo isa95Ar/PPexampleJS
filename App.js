@@ -1,4 +1,5 @@
-import { StatusBar } from "expo-status-bar";
+/* Autor Franco 21/10/20 Instituto Superior Patagonico */
+import { StatusBar } from "expo-status-bar"; 
 import React, { useState } from "react";
 import {
   ActivityIndicator,
