@@ -1,3 +1,6 @@
+/* Autor: Jorge
+fecha: 21/10/2020
+Instituto superior patagonico */
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
