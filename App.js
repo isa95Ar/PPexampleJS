@@ -1,15 +1,16 @@
 /*Author: Lucas S - Instituto Superior Patagonico - 21-10-2020*/;
+import { Avatar, Image, Text, Input, Button, Accessory } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   ActivityIndicator,
-  Button,
   FlatList,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
-import Boton from './componentes/Boton';
+
+
 
 export default function App() {
   const [countClick, setCount] = useState(0);
@@ -33,28 +34,53 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>You press {countClick} times the button! </Text>
-        <Boton titulo="cambia de color"/>
-        
-        <Button
-          title={
-            !loading ? (
-              "Click Me"
-            ) : (
-              <ActivityIndicator
-                size="small"
-                color="white"
-                animating={loading}
-              />
-            )
-          }
-          onPress={pressFunction}
-          disabled={loading}
-        />
-      </View>
-      <ListExample clicks = {clicks}/>
-      <StatusBar style="auto" />
+
+      <Avatar
+        size= "xlarge"
+        rounded
+        source={{
+          uri:
+          'https://i.ibb.co/xq6HWCc/logo.png',
+        }}
+        onPress={() => console.log("Funciona")}
+        activeOpacity={0.7}
+        containerStyle={{flex: 2, marginLeft: 20, marginTop: 115}}
+      />
+
+      <Text h3 style={styles.Text}>Bienveni2</Text>
+
+
+      <Input
+        placeholder='User'
+        style={styles.Input}
+      />
+
+
+      <Input placeholder="Password" secureTextEntry={true} 
+        style={styles.Input}
+      />
+
+      <Button
+        title="Iniciar"
+        type="outline"
+        style={styles.Button}
+      />
+
+
+      <Image
+        source={{ uri: "https://emoji.gg/assets/emoji/8219_cheems.png" }}
+        style={{ width: 50, height: 50 }}
+      />
+    
+      <Avatar
+        size="xlarge"
+        rounded
+        icon={{name: 'meteor', type: 'font-awesome-5'}}
+        onPress={() => console.log("Works!")}
+        activeOpacity={0.7}
+        containerStyle={{flex: 5, marginRight: 60}}
+      />
+
     </View>
   );
 }
@@ -78,10 +104,40 @@ const ListExample = ({clicks}) => {
 };
 
 const styles = StyleSheet.create({
+  
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
+    flex: 2,
+    backgroundColor: "#F0FFFF",
     alignItems: "center",
     justifyContent: "center",
   },
+  
+  avatar: {
+    backgroundColor: "black",
+    color: "white",
+
+  },
+
+  Text: {
+    color: "#4169E1",
+  },
+
+  Input: {
+    backgroundColor:"#F0FFFF",
+    width: "40px",
+    borderColor: "#4169E1",
+    borderWidth: 3,
+    borderEndWidth: 100,
+
+    width:"200px",
+    
+  },
+
+  Button: {
+    color: "#4169E1",
+    borderColor: "#4169E1",
+    borderWidth: 3,
+    width:"100px"
+  }
+
 });
