@@ -1,83 +1,62 @@
 /* Autor: Jorge
 fecha: 21/10/2020
 Instituto superior patagonico */
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React from "react";
 import {
-  ActivityIndicator,
-  Button,
-  FlatList,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
-import Boton from './componentes/Boton';
+import { Avatar, Text, Input, Button } from "react-native-elements";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function App() {
-  const [countClick, setCount] = useState(0);
-  const [loading, setLoader] = useState(false);
-  const [clicks,setClicks] = useState([])
-
-
-  const pressFunction = () => {
-    setLoader(true);
-    const count = countClick + 1;
-    const t = new Date();
-    const time = t.getTime();
-    const Newclick = [...clicks,{number:count,time:time}] 
-
-    setCount(count);
-    setClicks(Newclick);
-    setTimeout(() => {
-      setLoader(false);
-    }, 1000);
-  };
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text>You press {countClick} times the button! </Text>
-        <Boton titulo="cambia de color"/>
-        
-        <Button
-          title={
-            !loading ? (
-              "Click Me"
-            ) : (
-              <ActivityIndicator
-                size="small"
-                color="white"
-                animating={loading}
-              />
-            )
-          }
-          onPress={pressFunction}
-          disabled={loading}
-        />
-      </View>
-      <ListExample clicks = {clicks}/>
-      <StatusBar style="auto" />
+
+<Avatar
+size="xlarge"
+rounded
+source= {{
+  uri:'https://scontent.fnqn2-1.fna.fbcdn.net/v/t1.0-9/58641557_3051203668238115_6615079470766227456_n.png?_nc_cat=105&ccb=2&_nc_sid=09cbfe&_nc_ohc=1M_h0ydzDfcAX_MY4nP&_nc_ht=scontent.fnqn2-1.fna&oh=50e31e43e07f3486be640872c895283b&oe=5FBF0CA0'
+}}
+activeOpacity={5.0}
+overlayContainerStyle= {{backgroundColor:"Black"}}
+/>
+<Text h1 > Bienvenido </Text>
+<Input
+placeholder = 'Usuario'
+leftIcon={
+  <Icon
+  name='user'
+  size={24}
+  color='black'
+  />
+
+}
+
+
+ /> 
+ <Input
+placeholder = 'Clave'secureTextEntry={true}
+leftIcon={
+  <Icon
+  name='lock'
+  size={24}
+  color='black'
+  />
+
+}
+
+
+ /> 
+<Button
+title='Entrar'
+/>
     </View>
   );
 }
 
-const Click = ({click}) => (
-  <View>
-  <Text>{`Click number ${click.number} at the ${click.time}`}</Text>
-  </View>
-  );
-
-const ListExample = ({clicks}) => {
-  
-  const renderItems = ({item}) => (
-    
-     <Click click={item} />
-  )
-
-  return <View>
-  <FlatList data={clicks} renderItem = {renderItems} keyExtractor={click => click.number}  />
-  </View>;
-};
 
 const styles = StyleSheet.create({
   container: {
