@@ -3,7 +3,6 @@ import React from "react";
 import {
   StyleSheet,
   View,
-  Avatar,
 } from "react-native";
 import {Avatar} from "react-native-elements";
 
@@ -12,24 +11,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-
-    </View>
-  );
-}
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
-// Standard Avatar
-<Avatar
+    <Avatar
   rounded
   source={{
     uri:
@@ -52,4 +34,21 @@ const styles = StyleSheet.create({
   >
   <Accessory />
 </Avatar>
+    </View>
+  );
+}
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
+// Standard Avatar
+
 
