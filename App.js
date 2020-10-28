@@ -37,24 +37,21 @@ export default function App() {
 
       <Avatar
         size= "xlarge"
-        rounded
         source={{
           uri:
-          'https://i.ibb.co/xq6HWCc/logo.png',
+          'https://i.ibb.co/vdsn5W4/patagocicon.png',
         }}
         onPress={() => console.log("Funciona")}
-        activeOpacity={0.7}
-        containerStyle={{flex: 2, marginLeft: 20, marginTop: 115}}
+        activeOpacity={0}
+        
       />
 
-      <Text h3 style={styles.Text}>Bienveni2</Text>
-
+      <Text h3 style={styles.Text}>Bienvenidos</Text>
 
       <Input
         placeholder='User'
         style={styles.Input}
       />
-
 
       <Input placeholder="Password" secureTextEntry={true} 
         style={styles.Input}
@@ -66,42 +63,14 @@ export default function App() {
         style={styles.Button}
       />
 
-
       <Image
         source={{ uri: "https://emoji.gg/assets/emoji/8219_cheems.png" }}
-        style={{ width: 50, height: 50 }}
+        style={{ width: 25, height: 25 }}
       />
     
-      <Avatar
-        size="xlarge"
-        rounded
-        icon={{name: 'meteor', type: 'font-awesome-5'}}
-        onPress={() => console.log("Works!")}
-        activeOpacity={0.7}
-        containerStyle={{flex: 5, marginRight: 60}}
-      />
-
     </View>
   );
 }
-
-const Click = ({click}) => (
-  <View>
-  <Text>{`Click number ${click.number} at the ${click.time}`}</Text>
-  </View>
-  );
-
-const ListExample = ({clicks}) => {
-  
-  const renderItems = ({item}) => (
-    
-     <Click click={item} />
-  )
-
-  return <View>
-  <FlatList data={clicks} renderItem = {renderItems} keyExtractor={click => click.number}  />
-  </View>;
-};
 
 const styles = StyleSheet.create({
   
@@ -115,7 +84,6 @@ const styles = StyleSheet.create({
   avatar: {
     backgroundColor: "black",
     color: "white",
-
   },
 
   Text: {
@@ -124,20 +92,17 @@ const styles = StyleSheet.create({
 
   Input: {
     backgroundColor:"#F0FFFF",
-    width: "40px",
+    width: "80",
     borderColor: "#4169E1",
     borderWidth: 3,
-    borderEndWidth: 100,
-
     width:"200px",
-    
   },
 
   Button: {
     color: "#4169E1",
     borderColor: "#4169E1",
     borderWidth: 3,
-    width:"100px"
+    width:"200px"
   }
 
 });
