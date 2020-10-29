@@ -1,31 +1,28 @@
-import { Avatar } from "react-native-elements";
-import React from "react";
+import * as React from "react";
 import {
-  StyleSheet,
-  View,
+    StyleSheet,
 } from "react-native";
+import {NavigationContainer} from "@react-navigation/native"
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import MainScreen from "./componentes/screens/MainScreen";
+
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Avatar
-        activeOpacity={0.7}
-        containerStyle={{backgroundColor: "white"}}
-        onPress={() => console.log("Works!")}
-        rounded
-        size="large"
-        title="GV"
-        titleStyle={{color: "black"}}
-      />
-    </View>
-  );
+    return (
+        <NavigationContainer>
+            <Drawer.Navigator initialRouteName="Main">
+                <Drawer.Screen name="Main" component={MainScreen} />
+            </Drawer.Navigator>
+        </NavigationContainer>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "black",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    StackScreen: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
 });
