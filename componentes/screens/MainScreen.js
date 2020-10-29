@@ -3,7 +3,10 @@ import {
     Text,    
     View
 } from "react-native";
-import {Header} from 'react-native-elements';
+import {Header} from "react-native-elements";
+import { setUserName } from "../../actions";
+import store from "../../store/index";
+
 
 export default function MainScreen({navigation}) {
     return (
@@ -16,7 +19,13 @@ export default function MainScreen({navigation}) {
                     color: "#fff",
                     onPress: () => {
                         console.log("Click recibido");
-                        navigation.openDrawer()}}}
+                        navigation.openDrawer()
+                      }}}
+                rightComponent={{
+                  icon: 'home',
+                  color: '#fff',
+                  onPress: () => store.dispatch(setUserName("Gonzalo"))
+                  }}
                 />
         <Text>Home Screen</Text>
       </View>

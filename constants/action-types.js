@@ -1,0 +1,3 @@
+export const SET_USER_NAME = "SET_USER_NAME"
+export const SET_USER_PICTURE = "SET_USER_PICTURE"
+export const SET_USER_TOKEN = "SET_USER_TOKEN"
