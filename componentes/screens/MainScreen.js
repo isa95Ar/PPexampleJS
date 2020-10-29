@@ -4,8 +4,7 @@ import {
     View
 } from "react-native";
 import {Header} from "react-native-elements";
-import { setUserName } from "../../actions";
-import store from "../../store/index";
+import {setUserName} from "../../actions";
 
 
 export default function MainScreen({navigation}) {
@@ -27,7 +26,7 @@ export default function MainScreen({navigation}) {
                   onPress: () => store.dispatch(setUserName("Gonzalo"))
                   }}
                 />
-        <Text>Home Screen</Text>
+        <Text> Texto por aquí </Text>
       </View>
     );
   };

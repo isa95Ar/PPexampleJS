@@ -5,11 +5,14 @@ import {
 import {NavigationContainer} from "@react-navigation/native"
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import MainScreen from "./componentes/screens/MainScreen";
+import store from "./store/index";
+import {render} from "react-dom";
+import {Provider} from "react-redux";
 
 
 const Drawer = createDrawerNavigator();
 
-export default function App() {
+function App() {
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Main">
@@ -17,6 +20,15 @@ export default function App() {
             </Drawer.Navigator>
         </NavigationContainer>
     );
+}
+
+export default function index(){
+    render(
+        <Provider store={store}>
+            <App />
+        </Provider>,
+        document.getElementById("root")
+    )
 }
 
 const styles = StyleSheet.create({
