@@ -1,5 +1,5 @@
 /*Author: Lucas S - Instituto Superior Patagonico - 21-10-2020*/;
-import { Avatar, Image, Text, Input, Button, Accessory } from 'react-native-elements';
+import { Avatar, Image, Text, Input, Button, Accessory, withTheme } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
@@ -53,19 +53,14 @@ export default function App() {
         style={styles.Input}
       />
 
-      <Input placeholder="Password" secureTextEntry={true} 
+      <Input placeholder="Password" secureTextEntry={true}
+        
         style={styles.Input}
       />
 
       <Button
-        title="Iniciar"
-        type="outline"
+        title="Inicio"
         style={styles.Button}
-      />
-
-      <Image
-        source={{ uri: "https://emoji.gg/assets/emoji/8219_cheems.png" }}
-        style={{ width: 25, height: 25 }}
       />
     
     </View>
@@ -76,7 +71,7 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 2,
-    backgroundColor: "#F0FFFF",
+    backgroundColor: "#0094c3",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -87,21 +82,24 @@ const styles = StyleSheet.create({
   },
 
   Text: {
-    color: "#4169E1",
+    color: "white",
   },
 
   Input: {
-    backgroundColor:"#F0FFFF",
-    width: "80",
-    borderColor: "#4169E1",
-    borderWidth: 3,
+    backgroundColor:"#F5F5F5",
+    borderColor: "#781713",
+    borderWidth: 4,
     width:"200px",
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    size:"10",
   },
 
   Button: {
-    color: "#4169E1",
-    borderColor: "#4169E1",
-    borderWidth: 3,
+    backgroundColor: "#F5F5F5",
+    borderColor: "#781713",
+    borderWidth: 4,
     width:"200px"
   }
 
