@@ -5,30 +5,23 @@ import {
 import {NavigationContainer} from "@react-navigation/native"
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import MainScreen from "./componentes/screens/MainScreen";
-import store from "./store/index";
-import {render} from "react-dom";
 import {Provider} from "react-redux";
+import {createStore} from 'redux';
+import reducer from "./redux/userRedux";
 
-
+const store = createStore(reducer);
 const Drawer = createDrawerNavigator();
 
-function App() {
+export default function App() {
     return (
-        <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Main">
-                <Drawer.Screen name="Main" component={MainScreen} />
-            </Drawer.Navigator>
-        </NavigationContainer>
-    );
-}
-
-export default function index(){
-    render(
         <Provider store={store}>
-            <App />
-        </Provider>,
-        document.getElementById("root")
-    )
+            <NavigationContainer>
+                <Drawer.Navigator initialRouteName="Main">
+                    <Drawer.Screen name="Main" component={MainScreen} />
+                </Drawer.Navigator>
+            </NavigationContainer>
+        </Provider>
+    );
 }
 
 const styles = StyleSheet.create({

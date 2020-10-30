@@ -1,32 +1,49 @@
 import React from "react"
 import {
-    Text,    
+    Text,
     View
 } from "react-native";
 import {Header} from "react-native-elements";
-import {setUserName} from "../../actions";
+import {connect} from "react-redux";
+import {setUserName} from "../../redux/userRedux"
 
 
-export default function MainScreen({navigation}) {
+function MainScreen({navigation, setUserName, userName}) {
     return (
-      <View style={{ flex: 1, alignItems: "center" }}>
+        <View style={{ flex: 1, alignItems: "center" }}>
             <Header
-                centerComponent={{text: "Pantalla Principal", style: {color: "#fff"}}}
-                containerStyle={{backgroundColor: "brown"}}
+                centerComponent={{ text: "Pantalla Principal", style: { color: "#fff" } }}
+                containerStyle={{ backgroundColor: "brown" }}
                 leftComponent={{
-                    icon: "menu", 
+                    icon: "menu",
                     color: "#fff",
                     onPress: () => {
-                        console.log("Click recibido");
                         navigation.openDrawer()
-                      }}}
+                    }
+                }}
                 rightComponent={{
-                  icon: 'home',
-                  color: '#fff',
-                  onPress: () => store.dispatch(setUserName("Gonzalo"))
-                  }}
-                />
-        <Text> Texto por aquí </Text>
-      </View>
+                    icon: 'home',
+                    color: '#fff',
+                    onPress: () => {
+                        console.log("Al menos entendí el click");
+                        setUserName("Gonzalo")
+                    }
+                }}
+            />
+            <Text>Nombre de usuario actual {userName}</Text>
+        </View>
     );
-  };
+};
+
+const mapStateToProps = state => ({
+    userName: state.userName
+});
+
+const mapDispatchToProps = {
+    setUserName
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MainScreen)
