@@ -6,13 +6,20 @@ import {NavigationContainer} from "@react-navigation/native"
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import MainScreen from "./componentes/screens/MainScreen";
 import {Provider} from "react-redux";
-import {createStore} from 'redux';
-import reducer from "./redux/userRedux";
+import {createStore,combineReducers} from 'redux';
+import user from "./redux/user";
+import thunk from 'redux-thunk'
+import { applyMiddleware } from "@reduxjs/toolkit";
 
-const store = createStore(reducer);
-const Drawer = createDrawerNavigator();
+
 
 export default function App() {
+  const reducers = combineReducers({user})
+  const store = createStore(reducers,applyMiddleware(thunk));
+  const Drawer = createDrawerNavigator();
+  
+  
+
     return (
         <Provider store={store}>
             <NavigationContainer>

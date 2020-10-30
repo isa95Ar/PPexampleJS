@@ -1,14 +1,26 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import {
     Text,
     View
 } from "react-native";
 import {Header} from "react-native-elements";
 import {connect} from "react-redux";
-import {setUserName} from "../../redux/userRedux"
+import {setUserName} from "../../redux/user"
+import {useDispatch,useSelector} from "react-redux";
+import { useNavigation } from '@react-navigation/native';
+
+function MainScreen() {
+
+    const dispatch = useDispatch();
+    const navigation = useNavigation();
+    const dataUser = useSelector(state => state.user);
+
+    const [dataUserNa,setdataUserNa] = useState(dataUser.userName);
+    useEffect(() => {
+        setdataUserNa(dataUser.userName);
+    },[dataUser]);
 
 
-function MainScreen({navigation, setUserName, userName}) {
     return (
         <View style={{ flex: 1, alignItems: "center" }}>
             <Header
@@ -26,24 +38,13 @@ function MainScreen({navigation, setUserName, userName}) {
                     color: '#fff',
                     onPress: () => {
                         console.log("Al menos entendí el click");
-                        setUserName("Gonzalo")
+                        dispatch(setUserName("Gonzalo"))
                     }
                 }}
             />
-            <Text>Nombre de usuario actual {userName}</Text>
+            <Text>Nombre de usuario actual {dataUserNa}</Text>
         </View>
     );
 };
 
-const mapStateToProps = state => ({
-    userName: state.userName
-});
-
-const mapDispatchToProps = {
-    setUserName
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(MainScreen)
+export default MainScreen;

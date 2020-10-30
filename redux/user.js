@@ -3,17 +3,17 @@ const SET_USER_PICTURE = "SET_USER_PICTURE";
 const SET_USER_TOKEN = "SET_USER_TOKEN";
 
 const initialState = {
-    userName: "",
+    userName: "TEST",
     picture: "",
     token: ""
 }
 
-export default function reducer(state = initialState, action = {}){
+export default function user(state = initialState, action = {}){
     switch(action.type){
         case SET_USER_NAME:
             return {
                 ...state,
-                userName: action.data.userName
+                userName: action.data
             };
         case SET_USER_PICTURE:
             return {
@@ -31,6 +31,7 @@ export default function reducer(state = initialState, action = {}){
 };
 
 export function setUserName(text){
+    
     return {
         type: SET_USER_NAME,
         data: text
