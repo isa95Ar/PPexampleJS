@@ -8,6 +8,7 @@ import { Input } from 'react-native-elements';
 import { Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 
 /*export default function App() {
   return (
@@ -50,26 +51,69 @@ leftIcon={{ type: 'font-awesome', name: 'chevron-left' }}
   );
 }
 */
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Menu</Text>
+    <View style={{ flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center' }}>
+      <Text>Noticias</Text>
+      <Button
+        title="Saber mas"
+        onPress={() => navigation.navigate('Details')}
+
+        />
+        
+  
     </View>
   );
 }
 
-function SettingsScreen() {
+
+function SettingsScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text> Ayuda </Text>
-      <Text> Formas de pago</Text>
-      <Text> Contacto</Text>
-      <Text> Bugs de la app</Text>
+    <View style={{ flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center' }}>
+      <Text>Detalles de configuracion</Text>
+      <Button
+        title="Configuracion"
+        onPress={() => navigation.navigate('Details')}
+      />
     </View>
   );
+}
+
+function Tareas({ navigation }) {
+  return (
+     <View style={{ flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'}}>
+    <Text> Detalles de las tareas</Text>
+    <Button
+       title="Tareas"
+       onPress={() => navigation.navigate('Homeworks')}
+    />
+  </View>
+  );
+}
+
+function Notificaciones({ navigation }) {
+  return (
+    <View style={{flex : 1,
+    justifyContent: 'center',
+    alignItems: 'center'}}>
+    <Text> Aca se muestran las notificaciones</Text>
+    <Button
+    title="Notificaciones"
+    onPress={() => navigation.navigate('Homeworks')}
+    />
+
+    </View>
+  )
 }
 
 const Tab = createBottomTabNavigator();
+
 
 export default function App() {
   return (
@@ -97,6 +141,23 @@ export default function App() {
                   color={color}
                 />
               );
+  
+            } else if (route.name === 'Tareas') {
+              return (
+                <Icon
+                name="copy-outline"
+                size={size}
+                color={color}
+                />
+              );
+            } else if (route.name === 'Notificaciones') {
+              return (
+                <Ionicons
+                name= 'chatbubble-ellipses-outline'
+                size={size}
+                color={color}
+                />
+              )
             }
           },
         })}
@@ -105,12 +166,15 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Menu" component={HomeScreen} options={{ tabBarBadge: 3 }} />
-        <Tab.Screen name="Configuracion" component={SettingsScreen} />
+        <Tab.Screen name="Publicaciones" component={HomeScreen} />
+        <Tab.Screen name="Calendario" component={SettingsScreen} />
+        <Tab.Screen name="Tareas" component={Tareas} />
+        <Tab.Screen name="Notificaciones" component={Notificaciones} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -123,8 +187,13 @@ const styles = StyleSheet.create({
   },
   icon:{
     color:"black"
+  },
+  button:{
+  backgroundColor:"red",
   }
+  
 });
+
 
 
 
